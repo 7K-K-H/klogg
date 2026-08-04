@@ -39,8 +39,7 @@ runs:
       shell: cmd
       run: |
         md %KLOGG_BUILD_ROOT%\packages
-        xcopy klogg-%KLOGG_VERSION%-%KLOGG_ARCH%-%KLOGG_QT%-portable.zip %KLOGG_BUILD_ROOT%\packages /y
-        
+                xcopy %KLOGG_WORKSPACE%\release\*.* %KLOGG_BUILD_ROOT%\packages\ /y /e /i
     #- name: Win codesign installer
     #  if: ${{ github.event_name != 'pull_request' }}
     #  shell: cmd
