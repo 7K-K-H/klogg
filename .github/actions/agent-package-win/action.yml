@@ -35,20 +35,12 @@ runs:
       run: |
         packaging\windows\prepare_release.cmd
 
-    - name: Win installer
-      uses: joncloud/makensis-action@v3.3
-      with:
-        script-file: klogg.nsi
-        arguments: "-DVERSION=%KLOGG_VERSION% -DPLATFORM=%KLOGG_ARCH% -DQT_MAJOR=%KLOGG_QT%" 
-    
     - name: Win package
       shell: cmd
       run: |
         md %KLOGG_BUILD_ROOT%\packages
         xcopy klogg-%KLOGG_VERSION%-%KLOGG_ARCH%-%KLOGG_QT%-portable.zip %KLOGG_BUILD_ROOT%\packages /y
-        xcopy klogg-%KLOGG_VERSION%-%KLOGG_ARCH%-%KLOGG_QT%-pdb.zip %KLOGG_BUILD_ROOT%\packages /y
-        xcopy klogg-%KLOGG_VERSION%-%KLOGG_ARCH%-%KLOGG_QT%-setup.exe %KLOGG_BUILD_ROOT%\packages /y
-
+        
     #- name: Win codesign installer
     #  if: ${{ github.event_name != 'pull_request' }}
     #  shell: cmd
