@@ -15,6 +15,7 @@ add_custom_command(
 set(TS_FILES
   ${CMAKE_CURRENT_SOURCE_DIR}/i18n/en.ts
   ${CMAKE_CURRENT_SOURCE_DIR}/i18n/zh_CN.ts
+  ${CMAKE_CURRENT_SOURCE_DIR}/i18n/ko.ts
 )
 
 find_package(Qt${QT_VERSION_MAJOR}LinguistTools REQUIRED)
